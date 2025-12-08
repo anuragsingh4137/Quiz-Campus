@@ -1,0 +1,171 @@
+/* === Global Body Layout === */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #2563eb; /* fallback color */
+  background: url('images/background.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: #111827;
+  overflow: hidden; /* no scroll */
+}
+
+/* === Left Section (Logo + Title) === */
+.auth-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: absolute;
+  top: 40px;
+  left: 60px;
+}
+
+.auth-header img {
+  width: 100px;
+  height:100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 10px;
+  border: 2px solid white;
+}
+
+.auth-header h1 {
+  font-size: 26px;
+  font-weight: 700;
+  color: white;
+}
+
+/* === Register / Login Card === */
+.auth-card {
+  position: absolute;
+  right: 80px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.97);
+  width: 500px;
+  padding: 35px;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+/* === Card Heading === */
+.auth-card h2 {
+  font-size: 30px;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #333;
+}
+
+/* === Form Elements === */
+.auth-card input,
+.auth-card select,
+.auth-card button {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+}
+
+.auth-card input:focus,
+.auth-card select:focus {
+  border-color: #2563eb;
+  outline: none;
+}
+
+/* === Form Row Compact (DOB & Gender) === */
+.form-row-compact {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 15px;
+}
+
+.form-field-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-field-group label {
+  font-size: 13px;
+  color: #555;
+  margin-bottom: 4px;
+}
+
+/* === Phone Input Styling === */
+.phone-group {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.phone-group select {
+  flex: 1;
+}
+
+.phone-group input {
+  flex: 3;
+}
+
+/* === Button Styling === */
+.auth-card button {
+  background: #2563eb;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s ease;
+}
+
+.auth-card button:hover {
+  background: #1e40af;
+}
+
+/* === Footer Links === */
+.auth-alt {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.auth-alt a {
+  color: #2563eb;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.auth-alt a:hover {
+  color: #1e40af;
+}
+
+/* === Messages === */
+.error {
+  color: #b91c1c;
+  background: #fee2e2;
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 12px;
+  font-size: 14px;
+  text-align: center;
+}
+/* === Uniform Input and Select Heights === */
+.auth-card input,
+.auth-card select {
+  height: 45px;              /* fixed equal height for all fields */
+  line-height: 45px;         /* vertically centers text */
+  padding: 0 12px;           /* remove top-bottom padding difference */
+  box-sizing: border-box;    /* ensures consistent sizing */
+}
+
+/* Prevent the select dropdown arrow from adding extra padding */
+.auth-card select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-position: right 12px center;
+  background-repeat: no-repeat;
+  background-size: 12px;
+}
