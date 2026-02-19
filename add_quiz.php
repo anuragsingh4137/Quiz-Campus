@@ -87,7 +87,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
 
     <div class="content">
-      <h2>➕ Add New Quiz</h2>
+      <h2>
+  <i class="fa-solid fa-circle-plus"></i> Add New Quiz 
+</h2>
       <form method="POST">
         <label>Quiz Title:</label>
         <input type="text" name="title" required>

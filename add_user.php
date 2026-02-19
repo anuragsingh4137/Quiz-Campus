@@ -94,7 +94,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
 
     <div class="content">
-      <h2>➕ Add New User</h2>
+     <h2>
+  <i class="fa-solid fa-user"></i> Add User
+</h2>
       <?php if (isset($error)) echo "<p style='color:red;'>$error</p>"; ?>
       <form method="POST">
         <label>Name:</label>
