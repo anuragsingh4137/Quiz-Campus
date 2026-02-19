@@ -1,0 +1,95 @@
+[11-Dec-2025 06:59:56 Europe/Berlin] Khalti initiate failed: HTTP 401 resp={"detail":"Invalid token.","status_code":401}
+[11-Dec-2025 07:00:02 Europe/Berlin] Khalti initiate failed: HTTP 401 resp={"detail":"Invalid token.","status_code":401}
+[11-Dec-2025 07:00:08 Europe/Berlin] Khalti initiate failed: HTTP 401 resp={"detail":"Invalid token.","status_code":401}
+[11-Dec-2025 07:00:15 Europe/Berlin] Khalti initiate failed: HTTP 401 resp={"detail":"Invalid token.","status_code":401}
+[11-Dec-2025 07:02:16 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'plan_key' in 'field list' in C:\xampp\htdocs\quiz-campus\khalti_initiate.php:76
+Stack trace:
+#0 C:\xampp\htdocs\quiz-campus\khalti_initiate.php(76): mysqli->prepare('INSERT INTO pay...')
+#1 {main}
+  thrown in C:\xampp\htdocs\quiz-campus\khalti_initiate.php on line 76
+[11-Dec-2025 07:02:21 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'plan_key' in 'field list' in C:\xampp\htdocs\quiz-campus\khalti_initiate.php:76
+Stack trace:
+#0 C:\xampp\htdocs\quiz-campus\khalti_initiate.php(76): mysqli->prepare('INSERT INTO pay...')
+#1 {main}
+  thrown in C:\xampp\htdocs\quiz-campus\khalti_initiate.php on line 76
+[11-Dec-2025 07:08:57 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'plan_key' in 'field list' in C:\xampp\htdocs\quiz-campus\khalti_initiate.php:94
+Stack trace:
+#0 C:\xampp\htdocs\quiz-campus\khalti_initiate.php(94): mysqli->prepare('INSERT INTO pay...')
+#1 {main}
+  thrown in C:\xampp\htdocs\quiz-campus\khalti_initiate.php on line 94
+[11-Dec-2025 07:09:11 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'plan_key' in 'field list' in C:\xampp\htdocs\quiz-campus\khalti_initiate.php:94
+Stack trace:
+#0 C:\xampp\htdocs\quiz-campus\khalti_initiate.php(94): mysqli->prepare('INSERT INTO pay...')
+#1 {main}
+  thrown in C:\xampp\htdocs\quiz-campus\khalti_initiate.php on line 94
+[11-Dec-2025 07:09:48 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'plan_key' in 'field list' in C:\xampp\htdocs\quiz-campus\khalti_initiate.php:94
+Stack trace:
+#0 C:\xampp\htdocs\quiz-campus\khalti_initiate.php(94): mysqli->prepare('INSERT INTO pay...')
+#1 {main}
+  thrown in C:\xampp\htdocs\quiz-campus\khalti_initiate.php on line 94
+[11-Dec-2025 07:09:53 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'plan_key' in 'field list' in C:\xampp\htdocs\quiz-campus\khalti_initiate.php:94
+Stack trace:
+#0 C:\xampp\htdocs\quiz-campus\khalti_initiate.php(94): mysqli->prepare('INSERT INTO pay...')
+#1 {main}
+  thrown in C:\xampp\htdocs\quiz-campus\khalti_initiate.php on line 94
+[11-Dec-2025 07:11:07 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'purchase_order_id' in 'field list' in C:\xampp\htdocs\quiz-campus\khalti_initiate.php:94
+Stack trace:
+#0 C:\xampp\htdocs\quiz-campus\khalti_initiate.php(94): mysqli->prepare('INSERT INTO pay...')
+#1 {main}
+  thrown in C:\xampp\htdocs\quiz-campus\khalti_initiate.php on line 94
+[11-Dec-2025 07:11:10 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'purchase_order_id' in 'field list' in C:\xampp\htdocs\quiz-campus\khalti_initiate.php:94
+Stack trace:
+#0 C:\xampp\htdocs\quiz-campus\khalti_initiate.php(94): mysqli->prepare('INSERT INTO pay...')
+#1 {main}
+  thrown in C:\xampp\htdocs\quiz-campus\khalti_initiate.php on line 94
+[11-Dec-2025 07:11:14 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'purchase_order_id' in 'field list' in C:\xampp\htdocs\quiz-campus\khalti_initiate.php:94
+Stack trace:
+#0 C:\xampp\htdocs\quiz-campus\khalti_initiate.php(94): mysqli->prepare('INSERT INTO pay...')
+#1 {main}
+  thrown in C:\xampp\htdocs\quiz-campus\khalti_initiate.php on line 94
+[11-Dec-2025 07:17:27 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'pidx' in 'where clause' in C:\xampp\htdocs\quiz-campus\khalti_callback.php:59
+Stack trace:
+#0 C:\xampp\htdocs\quiz-campus\khalti_callback.php(59): mysqli->prepare('SELECT id, user...')
+#1 {main}
+  thrown in C:\xampp\htdocs\quiz-campus\khalti_callback.php on line 59
+[11-Dec-2025 09:35:22 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'pidx' in 'where clause' in C:\xampp\htdocs\quiz-campus\khalti_callback.php:59
+Stack trace:
+#0 C:\xampp\htdocs\quiz-campus\khalti_callback.php(59): mysqli->prepare('SELECT id, user...')
+#1 {main}
+  thrown in C:\xampp\htdocs\quiz-campus\khalti_callback.php on line 59
+[11-Dec-2025 09:35:36 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'pidx' in 'where clause' in C:\xampp\htdocs\quiz-campus\khalti_callback.php:59
+Stack trace:
+#0 C:\xampp\htdocs\quiz-campus\khalti_callback.php(59): mysqli->prepare('SELECT id, user...')
+#1 {main}
+  thrown in C:\xampp\htdocs\quiz-campus\khalti_callback.php on line 59
+[11-Dec-2025 09:36:06 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'pidx' in 'where clause' in C:\xampp\htdocs\quiz-campus\khalti_callback.php:59
+Stack trace:
+#0 C:\xampp\htdocs\quiz-campus\khalti_callback.php(59): mysqli->prepare('SELECT id, user...')
+#1 {main}
+  thrown in C:\xampp\htdocs\quiz-campus\khalti_callback.php on line 59
+[11-Dec-2025 09:36:39 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'pidx' in 'where clause' in C:\xampp\htdocs\quiz-campus\khalti_callback.php:53
+Stack trace:
+#0 C:\xampp\htdocs\quiz-campus\khalti_callback.php(53): mysqli->prepare('SELECT id, user...')
+#1 {main}
+  thrown in C:\xampp\htdocs\quiz-campus\khalti_callback.php on line 53
+[11-Dec-2025 09:36:50 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'pidx' in 'where clause' in C:\xampp\htdocs\quiz-campus\khalti_callback.php:59
+Stack trace:
+#0 C:\xampp\htdocs\quiz-campus\khalti_callback.php(59): mysqli->prepare('SELECT id, user...')
+#1 {main}
+  thrown in C:\xampp\htdocs\quiz-campus\khalti_callback.php on line 59
+[11-Dec-2025 09:39:49 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'transaction_id' in 'field list' in C:\xampp\htdocs\quiz-campus\khalti_callback.php:76
+Stack trace:
+#0 C:\xampp\htdocs\quiz-campus\khalti_callback.php(76): mysqli->prepare('INSERT INTO pay...')
+#1 {main}
+  thrown in C:\xampp\htdocs\quiz-campus\khalti_callback.php on line 76
+[11-Dec-2025 09:39:52 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'transaction_id' in 'field list' in C:\xampp\htdocs\quiz-campus\khalti_callback.php:76
+Stack trace:
+#0 C:\xampp\htdocs\quiz-campus\khalti_callback.php(76): mysqli->prepare('INSERT INTO pay...')
+#1 {main}
+  thrown in C:\xampp\htdocs\quiz-campus\khalti_callback.php on line 76
+[11-Dec-2025 09:40:11 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'transaction_id' in 'field list' in C:\xampp\htdocs\quiz-campus\khalti_callback.php:83
+Stack trace:
+#0 C:\xampp\htdocs\quiz-campus\khalti_callback.php(83): mysqli->prepare('UPDATE payments...')
+#1 {main}
+  thrown in C:\xampp\htdocs\quiz-campus\khalti_callback.php on line 83
+[14-Dec-2025 03:29:05 Europe/Berlin] Khalti initiate curl error: Connection timed out after 15013 milliseconds

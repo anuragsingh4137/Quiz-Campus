@@ -63,6 +63,8 @@ for ($i = 0; $i < count($scores); $i++) {
   <meta charset="UTF-8" />
   <title>My Quiz Results - Quiz Campus</title>
   <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
   <style>
     /* Small page-specific overrides to match your current style */
     .summary-cards { display:flex; gap:18px; flex-wrap:wrap; margin-bottom:20px; }
@@ -104,18 +106,33 @@ for ($i = 0; $i < count($scores); $i++) {
     <!-- Sidebar -->
     <div class="sidebar">
       <ul>
-        <li><a href="/quiz-campus/student_dashboard.php">🏠 Dashboard</a></li>
-        <li><a href="/quiz-campus/student_quizzes.php">📝 Available Quizzes</a></li>
-        <li><a href="/quiz-campus/student_premium.php">⭐ Premium Mock Tests</a></li>
-        <li><a href="/quiz-campus/student_my_results.php" class="active">📊 My Results</a></li>
-        <li><a href="/quiz-campus/student_profile.php">👤 Profile</a></li>
+        <li><a href="/quiz-campus/student_dashboard.php">
+  <i class="fa-solid fa-house"></i> Dashboard
+</a></li>
+
+<li><a href="/quiz-campus/student_quizzes.php">
+  <i class="fa-solid fa-file-lines"></i> Available Quizzes
+</a></li>
+
+<li><a href="/quiz-campus/student_premium.php">
+  <i class="fa-solid fa-star"></i> Premium Mock Tests
+</a></li>
+
+<li><a href="/quiz-campus/student_my_results.php"class="active">
+  <i class="fa-solid fa-chart-column"></i> My Results
+</a></li>
+
+<li><a href="/quiz-campus/student_profile.php">
+  <i class="fa-solid fa-user"></i> Profile
+</a></li>
+
       </ul>
     </div>
 
     <!-- Main content -->
     <div class="content">
       <div class="results-header">
-        <h2>📊 My Quiz Performance</h2>
+        <h2><i class="fa-solid fa-chart-column"></i> My Quiz Performance </h2>
         <p>Overview of your quiz attempts with charts and detailed results.</p>
       </div>
 

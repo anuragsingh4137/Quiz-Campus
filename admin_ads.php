@@ -117,6 +117,8 @@ if ($res) { $ads = $res->fetch_all(MYSQLI_ASSOC); }
   <meta charset="UTF-8">
   <title>Ads Manager | Quiz Campus</title>
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
   <style>
     .page-wrap { padding: 20px; }
     .card { background:#fff; border:1px solid #e5e7eb; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,.04); padding:20px; }
@@ -158,19 +160,57 @@ if ($res) { $ads = $res->fetch_all(MYSQLI_ASSOC); }
     <!-- left sidebar from your app -->
     <aside class="sidebar">
       <ul>
-        <li><a href="admin_dashboard.php">🏠 Dashboard</a></li>
-        <li><a href="admin_users.php">👥 Manage Users</a></li>
-        <li><a href="admin_quizzes.php">📝 Manage Quizzes</a></li>
-        <li><a href="admin_payments.php">💳 View Payments</a></li>
-        <li><a href="admin_reports.php">📊 Reports</a></li>
-        <li><a href="admin_notices.php">🔔 Manage Notices</a></li>
-        <li><a href="admin_ads.php" class="active">📢 Ads Manager</a></li>
+        <li>
+  <a href="admin_dashboard.php">
+    <i class="fa-solid fa-house"></i> Dashboard
+  </a>
+</li>
+
+<li>
+  <a href="admin_users.php">
+    <i class="fa-solid fa-users"></i> Manage Users
+  </a>
+</li>
+
+<li>
+  <a href="admin_quizzes.php">
+    <i class="fa-solid fa-file-lines"></i> Manage Quizzes
+  </a>
+</li>
+
+<li>
+  <a href="admin_payments.php">
+    <i class="fa-solid fa-credit-card"></i> View Payments
+  </a>
+</li>
+
+<li>
+  <a href="admin_reports.php">
+    <i class="fa-solid fa-chart-column"></i> Reports
+  </a>
+</li>
+
+<li>
+  <a href="admin_notices.php">
+    <i class="fa-solid fa-bell"></i> Manage Notices
+  </a>
+</li>
+
+<li>
+  <a href="admin_ads.php" class="active">
+    <i class="fa-solid fa-bullhorn"></i> Ads Manager
+  </a>
+</li>
+
       </ul>
     </aside>
 
     <!-- main -->
     <main class="content">
-      <div class="toolbar"><h2>Ads Manager</h2></div>
+      <div class="toolbar"><h2>
+  <i class="fa-solid fa-bullhorn"></i> Ads Manager
+</h2>
+</div>
 
       <?php if ($m = flash('success')): ?>
         <div class="alert alert-ok"><?= htmlspecialchars($m) ?></div>

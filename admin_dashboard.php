@@ -23,6 +23,8 @@ $admin_name = $admin['name'] ?? 'Admin';
   <meta charset="utf-8">
   <title>Admin Dashboard</title>
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
 </head>
 <body>
   <div class="navbar">
@@ -39,13 +41,48 @@ $admin_name = $admin['name'] ?? 'Admin';
   <div class="container">
     <div class="sidebar">
       <ul>
-        <li><a href="admin_dashboard.php" class="active">🏠 Dashboard</a></li>
-        <li><a href="admin_users.php">👥 Manage Users</a></li>
-        <li><a href="admin_quizzes.php">📝 Manage Quizzes</a></li>
-        <li><a href="admin_payments.php">💳 View Payments</a></li>
-        <li><a href="admin_reports.php">📊 Reports</a></li>
-        <li><a href="admin_notices.php"> 🔔 Manage Notices</a></li>
-        <li><a href="admin_ads.php"> 📢 Ads Manager</a></li>
+        <li>
+  <a href="admin_dashboard.php" class="active">
+    <i class="fa-solid fa-house"></i> Dashboard
+  </a>
+</li>
+
+<li>
+  <a href="admin_users.php">
+    <i class="fa-solid fa-users"></i> Manage Users
+  </a>
+</li>
+
+<li>
+  <a href="admin_quizzes.php">
+    <i class="fa-solid fa-file-lines"></i> Manage Quizzes
+  </a>
+</li>
+
+<li>
+  <a href="admin_payments.php">
+    <i class="fa-solid fa-credit-card"></i> View Payments
+  </a>
+</li>
+
+<li>
+  <a href="admin_reports.php">
+    <i class="fa-solid fa-chart-column"></i> Reports
+  </a>
+</li>
+
+<li>
+  <a href="admin_notices.php">
+    <i class="fa-solid fa-bell"></i> Manage Notices
+  </a>
+</li>
+
+<li>
+  <a href="admin_ads.php">
+    <i class="fa-solid fa-bullhorn"></i> Ads Manager
+  </a>
+</li>
+
       </ul>
     </div>
 

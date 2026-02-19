@@ -18,6 +18,7 @@ $result = $conn->query($sql);
   <meta charset="UTF-8">
   <title>Available Quizzes - Quiz Campus</title>
   <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <style>
     /* Blue TAKE QUIZ style button */
@@ -55,18 +56,35 @@ $result = $conn->query($sql);
     <!-- Sidebar -->
     <div class="sidebar">
       <ul>
-        <li><a href="student_dashboard.php">🏠Dashboard</a></li>
-        <li><a href="student_quizzes.php" class="active">📝Available Quizzes</a></li>
-        <li><a href="student_premium.php">⭐Premium Mock Tests</a></li>
-        <li><a href="student_my_results.php">📊My Results</a></li>
-        <li><a href="student_profile.php">👤Profile</a></li>
+       <li><a href="/quiz-campus/student_dashboard.php">
+  <i class="fa-solid fa-house"></i> Dashboard
+</a></li>
+
+<li><a href="/quiz-campus/student_quizzes.php"class="active">
+  <i class="fa-solid fa-file-lines"></i> Available Quizzes
+</a></li>
+
+<li><a href="/quiz-campus/student_premium.php">
+  <i class="fa-solid fa-star"></i> Premium Mock Tests
+</a></li>
+
+<li><a href="/quiz-campus/student_my_results.php">
+  <i class="fa-solid fa-chart-column"></i> My Results
+</a></li>
+
+<li><a href="/quiz-campus/student_profile.php">
+  <i class="fa-solid fa-user"></i> Profile
+</a></li>
+
       </ul>
     </div>
 
     <!-- Main content -->
     <div class="content">
       <div class="quiz-container">
-        <h2>🧩 Available Quizzes</h2>
+        <h2>
+  <i class="fa-solid fa-file-lines"></i> Available Quizzes
+</h2>
 
         <?php if ($result && $result->num_rows > 0): ?>
           <table>

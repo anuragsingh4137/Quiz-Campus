@@ -85,6 +85,27 @@ while ($row = $res->fetch_assoc()) {
   ];
 }
 $stmt->close();
+
+$correct = 0;
+$wrong = 0;
+$notAnswered = 0;
+
+foreach ($results as $r) {
+  if ($r['yours'] === null || $r['yours'] === '') {
+    $notAnswered++;
+  } elseif ($r['is_correct']) {
+    $correct++;
+  } else {
+    $wrong++;
+  }
+}
+
+$attempted = $correct + $wrong;
+$total = $correct + $wrong + $notAnswered;
+
+// percentage based on TOTAL questions (fair & simple)
+$percentage = $total > 0 ? round(($correct / $total) * 100, 2) : 0;
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -100,6 +121,11 @@ body {
   margin: 0;
   color: #111827;
 }
+.na {
+  color:#c2410c;
+  background:#ffedd5;
+}
+
 .container {
   max-width: 950px;
   margin: 40px auto;
@@ -201,16 +227,38 @@ body {
   <div class="stats">
     <?php
     $stats = [
-      ['value' => $score, 'label' => 'Correct Answers', 'percent' => ($total_questions>0?($score/$total_questions)*100:0)],
-      ['value' => $total_questions - $score, 'label' => 'Wrong Answers', 'percent' => ($total_questions>0?(($total_questions-$score)/$total_questions)*100:0)],
-      ['value' => $percentage, 'label' => 'Percentage', 'percent' => $percentage],
-      ['value' => $grade, 'label' => 'Grade', 'percent' => is_numeric($percentage) ? $percentage : 100]
-    ];
+  ['label' => 'Correct Answers', 'value' => $correct, 'percent' => ($total>0?($correct/$total)*100:0), 'type' => 'correct'],
+  ['label' => 'Wrong Answers', 'value' => $wrong, 'percent' => ($total > 0 ? ($wrong / $total) * 100 : 0), 'type' => 'wrong'],
+  ['label' => 'Not Answered', 'value' => $notAnswered, 'percent' => ($total > 0 ? ($notAnswered / $total) * 100 : 0), 'type' => 'na'],
+  ['label' => 'Percentage', 'value' => $percentage, 'percent' => $percentage, 'type' => 'percentage'],
+  ['label' => 'Grade', 'value' => $grade, 'percent' => 100, 'type' => 'grade']
+];
+
     foreach ($stats as $s):
       $percent = round($s['percent'], 2);
-      if ($percent >= 75) $color = "#16a34a";
-      elseif ($percent >= 50) $color = "#facc15";
-      else $color = "#dc2626";
+      switch ($s['type']) {
+  case 'correct':
+    $color = "#16a34a"; // green
+    break;
+
+  case 'wrong':
+    $color = ($s['value'] == 0) ? "#9ca3af" : "#dc2626"; // gray if 0
+    break;
+
+  case 'na':
+  $color = ($s['value'] == 0) ? "#9ca3af" : "#f59e0b"; // gray if 0
+  break;
+
+  case 'grade':
+    $color = ($grade === 'F') ? "#dc2626" : "#16a34a";
+    break;
+
+  default: // percentage
+    if ($percent >= 75) $color = "#16a34a";
+    elseif ($percent >= 50) $color = "#facc15";
+    else $color = "#dc2626";
+}
+
     ?>
     <div class="stat-box">
       <div class="circle-container">
@@ -235,7 +283,12 @@ body {
         <div class="question-card">
           <h4>Q<?php echo $i+1; ?>. <?php echo htmlspecialchars($r['question']); ?></h4>
           <div class="answer"><strong>Your Answer:</strong>
-            <span class="<?php echo $r['is_correct'] ? 'correct' : 'wrong'; ?>">
+            <span class="<?php
+  if ($r['yours'] === null || $r['yours'] === '') echo 'na';
+  elseif ($r['is_correct']) echo 'correct';
+  else echo 'wrong';
+?>">
+
               <?php echo $r['yours'] ? htmlspecialchars($r['yours']) : 'Not Answered'; ?>
             </span>
           </div>

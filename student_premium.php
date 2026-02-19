@@ -56,7 +56,9 @@ $res = $qs->get_result();
   <meta charset="utf-8" />
   <title>Premium Mock Tests — Quiz Campus</title>
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <link rel="stylesheet" href="css/style.css"> <!-- keep if you have global styles -->
+  <link rel="stylesheet" href="css/style.css"> 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
   <style>
     /* (kept your exact CSS but I shortened for brevity in this snippet)
        Paste the full CSS you already used; below is the same styling included earlier. */
@@ -73,14 +75,6 @@ $res = $qs->get_result();
     .topbar .left { display:flex; align-items:center; gap:12px; font-weight:700; }
     .topbar img.logo { width:36px; height:36px; border-radius:6px; background:#fff; padding:4px; }
     .topbar .right a { color:#fff; text-decoration:none; font-weight:700; }
-
-    /* Layout */
-    .layout { display:flex; min-height:calc(100vh - 64px); }
-    .sidebar { width:230px; background:#fff; border-right:1px solid rgba(2,6,23,0.04); padding:18px 12px; box-shadow: 0 6px 18px rgba(2,6,23,0.03); }
-    .sidebar .nav { list-style:none; padding:6px 0; margin:0; }
-    .sidebar .nav li { margin:6px 0; }
-    .sidebar .nav a { display:flex; align-items:center; gap:10px; padding:10px 12px; color:#374151; text-decoration:none; border-radius:8px; font-weight:600; }
-    .sidebar .nav a.active, .sidebar .nav a:hover { background:#eef2ff; color:#0f172a; }
 
     /* Page content */
     .page { flex:1; padding:28px 34px; max-width:1200px; margin:0 auto; }
@@ -147,23 +141,42 @@ $res = $qs->get_result();
     </div>
   </header>
 
-  <div class="layout">
-    <!-- SIDEBAR (same style as dashboard) -->
-    <aside class="sidebar" aria-label="Student navigation">
-      <ul class="nav">
-        <li><a href="student_dashboard.php" class="<?php echo (basename($_SERVER['SCRIPT_NAME'])==='student_dashboard.php') ? 'active':''; ?>">🏠 Dashboard</a></li>
-        <li><a href="student_quizzes.php" class="<?php echo (basename($_SERVER['SCRIPT_NAME'])==='student_quizzes.php') ? 'active':''; ?>">📝 Available Quizzes</a></li>
-        <li><a href="student_premium.php" class="active">⭐ Premium Mock Tests</a></li>
-        <li><a href="student_my_results.php">📊 My Results</a></li>
-        <li><a href="student_profile.php">👤 Profile</a></li>
+  <!-- Container -->
+  <div class="container">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <ul>
+      <li><a href="/quiz-campus/student_dashboard.php" >
+  <i class="fa-solid fa-house"></i> Dashboard
+</a></li>
+
+<li><a href="/quiz-campus/student_quizzes.php">
+  <i class="fa-solid fa-file-lines"></i> Available Quizzes
+</a></li>
+
+<li><a href="/quiz-campus/student_premium.php"class="active">
+  <i class="fa-solid fa-star"></i> Premium Mock Tests
+</a></li>
+
+<li><a href="/quiz-campus/student_my_results.php">
+  <i class="fa-solid fa-chart-column"></i> My Results
+</a></li>
+
+<li><a href="/quiz-campus/student_profile.php">
+  <i class="fa-solid fa-user"></i> Profile
+</a></li>
+
       </ul>
-    </aside>
+    </div>
 
     <!-- MAIN PAGE -->
     <main class="page" role="main">
       <div class="page-header">
         <div>
-          <div class="title">⭐Premium Mock Tests</div>
+          <div class="title">
+  <i class="fa-solid fa-crown"></i> Premium Mock Tests
+</div>
+
           <div class="subtitle">Welcome, <strong><?php echo $displayName; ?></strong> exclusive quizzes for premium users.</div>
         </div>
         <div style="align-self:flex-end"></div>

@@ -59,11 +59,48 @@ $hasAds = count($ads) > 0;
         <a class="btn btn-secondary" href="register.php">Register</a>
       </div>
     </div>
-
-    <div class="footer">
-      &copy; <?= date('Y') ?> Quiz Campus
-    </div>
   </div>
+  <footer class="main-footer">
+  <div class="footer-container">
+
+    <div class="footer-section">
+      <h4>Quiz Campus</h4>
+      <p>Your smart platform for quizzes, exams, and learning.</p>
+    </div>
+
+    <div class="footer-section">
+      <h4>Links</h4>
+      <ul>
+        <li><a href="index.php">Home</a></li>
+        <li><a href="login.php">Login</a></li>
+        <li><a href="register.php">Register</a></li>
+      </ul>
+    </div>
+
+     <div class="footer-section">
+  <h4>Contact</h4>
+
+  <p>
+    📧 <a href="mailto:quizcampus944@gmail.com">quizcampus944@gmail.com</a>
+  </p>
+
+  <p>
+    📞 <a href="tel:+9779840126117">+977-9840126117</a>
+  </p>
+
+  <p>
+    📍 <a href="https://maps.google.com/?q=Nepal" target="_blank">
+      Nepal
+    </a>
+  </p>
+</div>
+  </div>
+
+  <div class="footer-bottom">
+    © <?= date('Y') ?> Quiz Campus. All rights reserved.
+  </div>
+</footer>
+
 
 <script>
 (function () {

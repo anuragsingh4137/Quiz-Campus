@@ -94,6 +94,8 @@ $stmt->close();
   <meta charset="utf-8">
   <title>Teacher Profile</title>
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
   
 </head>
 <body>
@@ -109,20 +111,44 @@ $stmt->close();
   <div class="container">
     <div class="sidebar" role="navigation" aria-label="Teacher menu">
       <ul>
-        <li><a href="teacher_dashboard.php" class="<?= (basename($_SERVER['PHP_SELF'])=='teacher_dashboard.php') ? 'active' : '' ?>"><span class="icon">🏠</span> Dashboard</a></li>
-        <li><a href="teacher_create_quiz.php" class="<?= (basename($_SERVER['PHP_SELF'])=='teacher_create_quiz.php') ? 'active' : '' ?>"><span class="icon">✏️</span> Create Quiz</a></li>
-        <li><a href="teacher_add_questions.php" class="<?= (basename($_SERVER['PHP_SELF'])=='teacher_add_questions.php') ? 'active' : '' ?>"><span class="icon">➕</span> Add Questions</a></li>
-        <li><a href="teacher_bulk_upload.php" class="<?= (basename($_SERVER['PHP_SELF'])=='teacher_bulk_upload.php') ? 'active' : '' ?>"><span class="icon">📂</span> Bulk Upload (CSV)</a></li>
-        <li><a href="teacher_manage_quizzes.php" class="<?= (basename($_SERVER['PHP_SELF'])=='teacher_manage_quizzes.php') ? 'active' : '' ?>"><span class="icon">📘</span> Manage My Quizzes</a></li>
-        <li><a href="teacher_view_results.php" class="<?= (basename($_SERVER['PHP_SELF'])=='teacher_view_results.php') ? 'active' : '' ?>"><span class="icon">📈</span> View Results</a></li>
-        <li><a href="teacher_profile.php" class="active"><span class="icon">👤</span> Profile</a></li>
+        <li><a href="teacher_dashboard.php">
+  <i class="fa-solid fa-house"></i> Dashboard
+</a></li>
+
+<li><a href="teacher_create_quiz.php">
+  <i class="fa-solid fa-pen-to-square"></i> Create Quiz
+</a></li>
+
+<li><a href="teacher_add_questions.php">
+  <i class="fa-solid fa-circle-plus"></i> Add Questions
+</a></li>
+
+<li><a href="teacher_bulk_upload.php">
+  <i class="fa-solid fa-file-csv"></i> Bulk Upload (CSV)
+</a></li>
+
+<li><a href="teacher_manage_quizzes.php">
+  <i class="fa-solid fa-list-check"></i> Manage My Quizzes
+</a></li>
+
+<li><a href="teacher_view_results.php">
+  <i class="fa-solid fa-chart-line"></i> View Results
+</a></li>
+
+<li><a href="teacher_profile.php" class="active"s>
+  <i class="fa-solid fa-user"></i> Profile
+</a></li>
+
       </ul>
     </div>
 
     <!-- Profile Content -->
     <div class="content">
       <div class="profile-card">
-        <h2 style="margin-top:0;color:#1e3a8a;">My Profile</h2>
+        <h2 style="margin-top:0;color:#1e3a8a;">
+  <i class="fa-solid fa-user"></i> My Profile
+</h2>
+
 
         <?php if (!empty($message)): ?>
           <div class="msg"><?= htmlspecialchars($message) ?></div>
@@ -137,7 +163,6 @@ $stmt->close();
             <?php endif; ?>
 
             <div class="small-note" style="margin-top:10px;">
-              <?= !empty($user['is_premium_user']) ? "✅ Premium User" : "❌ Free User" ?>
             </div>
           </div>
 
@@ -195,8 +220,15 @@ $stmt->close();
                 <label>Profile Picture:</label>
                 <input type="file" name="profile_pic" disabled>
 
-                <label>Password (leave blank if not changing):</label>
-                <input type="password" name="password" disabled>
+               <label>Password (leave blank if not changing):</label>
+<input type="password" name="password" id="password" disabled>
+
+<div id="confirmPasswordWrapper" style="display:none; margin-top:8px;">
+    <label>Confirm Password:</label>
+    <input type="password" id="confirm_password">
+    <small id="passwordError" style="color:red; display:none;"></small>
+</div>
+
 
                 <div style="margin-top:16px; display:flex; gap:10px; align-items:center;">
                   <button type="button" class="edit-btn" id="editBtn">Edit</button>
@@ -212,15 +244,74 @@ $stmt->close();
   </div>
 
 <script>
-// Enable editing
-document.getElementById("editBtn").addEventListener("click", function() {
-    let form = document.getElementById("profileForm").elements;
-    for (let i = 0; i < form.length; i++) {
-        form[i].disabled = false;
-    }
-    document.getElementById("editBtn").style.display = "none";
-    document.getElementById("saveBtn").style.display = "inline-block";
+document.addEventListener("DOMContentLoaded", function () {
+
+    const editBtn = document.getElementById("editBtn");
+    const saveBtn = document.getElementById("saveBtn");
+    const passwordInput = document.getElementById("password");
+    const confirmWrapper = document.getElementById("confirmPasswordWrapper");
+    const confirmPassword = document.getElementById("confirm_password");
+    const passwordError = document.getElementById("passwordError");
+    const form = document.getElementById("profileForm");
+
+    // ---------- EDIT BUTTON ----------
+    editBtn.addEventListener("click", function () {
+        const elements = document.querySelectorAll(
+            "#profileForm input, #profileForm select"
+        );
+
+        elements.forEach(el => {
+            if (el.name !== "name" && el.name !== "email") {
+                el.disabled = false;
+            }
+        });
+
+        editBtn.style.display = "none";
+        saveBtn.style.display = "inline-block";
+    });
+
+    // ---------- SHOW CONFIRM PASSWORD ----------
+    passwordInput.addEventListener("input", function () {
+        if (this.value.length > 0) {
+            confirmWrapper.style.display = "block";
+        } else {
+            confirmWrapper.style.display = "none";
+            confirmPassword.value = "";
+            passwordError.style.display = "none";
+        }
+    });
+
+    // ---------- FORM VALIDATION ----------
+    form.addEventListener("submit", function (e) {
+        const password = passwordInput.value;
+
+        // If password is empty, allow submit
+        if (password.length === 0) return;
+
+        const regex =
+            /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&^_-]).{6,}$/;
+
+        if (!regex.test(password)) {
+            e.preventDefault();
+            passwordError.style.display = "block";
+            passwordError.textContent =
+                "Password must be at least 6 characters and include a letter, a number, and a symbol.";
+            return;
+        }
+
+        if (password !== confirmPassword.value) {
+            e.preventDefault();
+            passwordError.style.display = "block";
+            passwordError.textContent = "Passwords do not match.";
+            return;
+        }
+
+        passwordError.style.display = "none";
+    });
+
 });
 </script>
+
+
 </body>
 </html>

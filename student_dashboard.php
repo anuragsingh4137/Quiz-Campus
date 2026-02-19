@@ -21,6 +21,8 @@ $total_attempts = $total_quizzes_query->fetch_assoc()['total'] ?? 0;
 <head>
   <meta charset="UTF-8">
   <title>Student Dashboard - Quiz Campus</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
   <link rel="stylesheet" href="css/style.css">
   <style>
     .dashboard-header {
@@ -45,7 +47,7 @@ $total_attempts = $total_quizzes_query->fetch_assoc()['total'] ?? 0;
     .card:hover {
       transform: translateY(-4px);
     }
-    .card h3 {
+    .card h2{
       margin: 0;
       color: #2563eb;
     }
@@ -133,11 +135,25 @@ $total_attempts = $total_quizzes_query->fetch_assoc()['total'] ?? 0;
     <!-- Sidebar -->
     <div class="sidebar">
       <ul>
-        <li><a href="/quiz-campus/student_dashboard.php"class="active">🏠 Dashboard</a></li>
-        <li><a href="/quiz-campus/student_quizzes.php">📝 Available Quizzes</a></li>
-        <li><a href="/quiz-campus/student_premium.php">⭐ Premium Mock Tests</a></li>
-        <li><a href="/quiz-campus/student_my_results.php">📊 My Results</a></li>
-        <li><a href="/quiz-campus/student_profile.php">👤Profile</a></li>
+        <li><a href="/quiz-campus/student_dashboard.php" class="active">
+<i class="fa-solid fa-house"></i> Dashboard
+</a></li>
+
+<li><a href="/quiz-campus/student_quizzes.php">
+<i class="fa-solid fa-file-lines"></i> Available Quizzes
+</a></li>
+
+<li><a href="/quiz-campus/student_premium.php">
+<i class="fa-solid fa-star"></i> Premium Mock Tests
+</a></li>
+
+<li><a href="/quiz-campus/student_my_results.php">
+<i class="fa-solid fa-chart-column"></i> My Results
+</a></li>
+
+<li><a href="/quiz-campus/student_profile.php">
+<i class="fa-solid fa-user"></i> Profile
+</a></li>
       </ul>
     </div>
 
@@ -151,19 +167,20 @@ $total_attempts = $total_quizzes_query->fetch_assoc()['total'] ?? 0;
       <!-- Profile Summary Cards -->
       <div class="cards">
         <div class="card">
-          <h3>👤 Profile</h3>
+          <h2><i class="fa-solid fa-user"></i> Profile </h2>
+
           <p><strong>Email:</strong> <?= htmlspecialchars($user['email']) ?></p>
           <p><strong>Education:</strong> <?= htmlspecialchars($user['education_level'] ?? 'Not set') ?></p>
           <p><strong>Gender:</strong> <?= htmlspecialchars($user['gender'] ?? 'Not set') ?></p>
         </div>
 
         <div class="card">
-          <h3>📘 Total Quizzes</h3>
+          <h2><i class="fa-solid fa-book"></i> Total Quizzes </h2>
           <p><?= $total_attempts ?> attempted quizzes</p>
         </div>
 
         <div class="card">
-          <h3>⭐ Premium Access</h3>
+          <h2><i class="fa-solid fa-user"></i> Profile </h2>
           <p>
             <?php if ($user['is_premium_user']) {
                 echo "✅ You are a Premium Member";
@@ -177,16 +194,32 @@ $total_attempts = $total_quizzes_query->fetch_assoc()['total'] ?? 0;
       <!-- Quick Links -->
       <div class="quick-links">
         <h3>Quick Actions</h3>
-        <a href="student_quizzes.php">🎯 Take a Quiz</a>
-        <a href="student_my_results.php">📊 View Results</a>
-        <a href="student_profile.php">👤 Edit Profile</a>
-        <a href="student_premium.php">⭐ Upgrade to Premium</a>
-        <a href="leaderboard.php" class="quick-action-btn">🏆 View Leaderboard</a>
+        <a href="student_quizzes.php">
+  <i class="fa-solid fa-bullseye"></i> Take a Quiz
+</a>
+
+<a href="student_my_results.php">
+  <i class="fa-solid fa-chart-column"></i> View Results
+</a>
+
+<a href="student_profile.php">
+  <i class="fa-solid fa-user-pen"></i> Edit Profile
+</a>
+
+<a href="student_premium.php">
+  <i class="fa-solid fa-crown"></i> Upgrade to Premium
+</a>
+
+<a href="leaderboard.php" class="quick-action-btn">
+  <i class="fa-solid fa-trophy"></i> View Leaderboard
+</a>
+
       </div>
 
       <!-- Announcements & Notices -->
       <div class="notice-board">
-        <h2>📢 Announcements & Notices</h2>
+        <h2><i class="fa-solid fa-bell"> </i> Announcements & Notices</h2>
+
         <ul>
           <?php
             require 'config.php';

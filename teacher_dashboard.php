@@ -46,6 +46,8 @@ $total_attempts = $attempts_data['total_attempts'] ?? 0;
   <meta charset="UTF-8">
   <title>Teacher Dashboard - Quiz Campus</title>
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
   <style>
     .dashboard-header { margin-bottom: 20px; }
     .cards { display: flex; flex-wrap: wrap; gap: 20px; margin-top: 20px; }
@@ -132,13 +134,34 @@ $total_attempts = $attempts_data['total_attempts'] ?? 0;
   <div class="container">
     <div class="sidebar"> 
       <ul>
-        <li><a href="teacher_dashboard.php" class="active">🏠 Dashboard</a></li>
-        <li><a href="teacher_create_quiz.php">✏️ Create Quiz</a></li>
-        <li><a href="teacher_add_questions.php">➕ Add Questions</a></li>
-        <li><a href="teacher_bulk_upload.php">📂 Bulk Upload (CSV)</a></li>
-        <li><a href="teacher_manage_quizzes.php">🧾 Manage My Quizzes</a></li>
-        <li><a href="teacher_view_results.php">📈 View Results</a></li>
-        <li><a href="teacher_profile.php">👤 Profile</a></li>
+        <li><a href="teacher_dashboard.php" class="active">
+  <i class="fa-solid fa-house"></i> Dashboard
+</a></li>
+
+<li><a href="teacher_create_quiz.php">
+  <i class="fa-solid fa-pen-to-square"></i> Create Quiz
+</a></li>
+
+<li><a href="teacher_add_questions.php">
+  <i class="fa-solid fa-circle-plus"></i> Add Questions
+</a></li>
+
+<li><a href="teacher_bulk_upload.php">
+  <i class="fa-solid fa-file-csv"></i> Bulk Upload (CSV)
+</a></li>
+
+<li><a href="teacher_manage_quizzes.php">
+  <i class="fa-solid fa-list-check"></i> Manage My Quizzes
+</a></li>
+
+<li><a href="teacher_view_results.php">
+  <i class="fa-solid fa-chart-line"></i> View Results
+</a></li>
+
+<li><a href="teacher_profile.php">
+  <i class="fa-solid fa-user"></i> Profile
+</a></li>
+
       </ul>
     </div>
 
@@ -151,7 +174,7 @@ $total_attempts = $attempts_data['total_attempts'] ?? 0;
       <!-- Profile Section -->
       <div class="cards">
         <div class="card">
-          <h3>👤 Profile</h3>
+          <h3><i class="fa-solid fa-user"></i> Profile</h3>
           <p><strong>Email:</strong> <?= htmlspecialchars($user['email'] ?? 'Not set') ?></p>
           <p><strong>Education:</strong> <?= htmlspecialchars($user['education_level'] ?? 'Not set') ?></p>
           <p><strong>Gender:</strong> <?= htmlspecialchars($user['gender'] ?? 'Not set') ?></p>
@@ -159,7 +182,7 @@ $total_attempts = $attempts_data['total_attempts'] ?? 0;
 
         <!-- Total Quizzes Created Section -->
         <div class="card">
-          <h3>📝 Total Quizzes Created</h3>
+          <h3><i class="fa-solid fa-pen-to-square"></i> Total Quizzes Created</h3>
           <p><strong>Free Quizzes:</strong> <?= $free_quiz ?></p>
           <p><strong>Premium Quizzes:</strong> <?= $premium_quiz ?></p>
           <p><strong>Total:</strong> <?= $free_quiz + $premium_quiz ?></p>
@@ -167,7 +190,7 @@ $total_attempts = $attempts_data['total_attempts'] ?? 0;
 
         <!-- Total Quiz Attempts Section -->
         <div class="card">
-          <h3>📊 Total Student Attempts</h3>
+          <h3><i class="fa-solid fa-chart-line"></i>Total Student Attempts</h3>
           <p><strong><?= $total_attempts ?></strong> attempts on your quizzes</p>
         </div>
       </div>
@@ -175,15 +198,27 @@ $total_attempts = $attempts_data['total_attempts'] ?? 0;
       <!-- Quick Links -->
       <div class="quick-links">
         <h3>Quick Actions</h3>
-        <a href="teacher_create_quiz.php">✏️ Create Quiz</a>
-        <a href="teacher_manage_quizzes.php">🧾 Manage Quizzes</a>
-        <a href="teacher_view_results.php">📈 View Results</a>
-        <a href="teacher_profile.php">👤 Profile</a>
+        <a href="teacher_create_quiz.php">
+  <i class="fa-solid fa-pen-to-square"></i> Create Quiz
+</a>
+
+<a href="teacher_manage_quizzes.php">
+  <i class="fa-solid fa-list-check"></i> Manage Quizzes
+</a>
+
+<a href="teacher_view_results.php">
+  <i class="fa-solid fa-chart-line"></i> View Results
+</a>
+
+<a href="teacher_profile.php">
+  <i class="fa-solid fa-user"></i> Profile
+</a>
+
       </div>
 
       <!-- ✅ Notice / Announcement Section -->
       <div class="notice-board">
-        <h2>📢 Announcements & Notices</h2>
+       <h2><i class="fa-solid fa-bell"> </i> Announcements & Notices</h2>
         <ul>
           <?php
             $role = $_SESSION['role']; // teacher

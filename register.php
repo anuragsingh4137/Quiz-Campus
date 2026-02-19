@@ -49,16 +49,76 @@ function send_otp_email($to_email, $to_name, $otp) {
         }
         $mail->Port       = SMTP_PORT;
 
-        $mail->setFrom(SMTP_FROM_EMAIL, SMTP_FROM_NAME);
-        $mail->addAddress($to_email, $to_name);
-        $mail->addReplyTo(SMTP_FROM_EMAIL, SMTP_FROM_NAME);
+       $mail->setFrom(SMTP_FROM_EMAIL, SMTP_FROM_NAME);
+$mail->addAddress($to_email, $to_name);
+$mail->addReplyTo(SMTP_FROM_EMAIL, SMTP_FROM_NAME);
 
-        $mail->isHTML(false);
-        $mail->Subject = "Quiz Campus — Your verification code";
-        $mail->Body    = "Hello " . ($to_name ?: '') . ",\n\n"
-                       . "Your verification code is: " . $otp . "\n"
-                       . "This code will expire in " . (OTP_EXPIRE_SECONDS/60) . " minutes.\n\n"
-                       . "If you did not request this, please ignore.\n\nRegards,\nQuiz Campus Team\n";
+// ✅ Enable HTML email
+$mail->isHTML(true);
+$mail->Subject = "Quiz Campus:Your Verification Code";
+
+// ✅ HTML Email Body
+$mail->Body = '
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Quiz Campus OTP</title>
+</head>
+<body style="margin:0; padding:0; background-color:#f4f6f8; font-family:Arial, sans-serif;">
+  <table width="100%" cellpadding="0" cellspacing="0">
+    <tr>
+      <td align="center" style="padding:30px;">
+        <table width="600" cellpadding="0" cellspacing="0" style="background:#ffffff; border-radius:8px; padding:30px;">
+          
+          <tr>
+            <td align="center" style="padding-bottom:15px;">
+              <h2 style="margin:0; color:#2c3e50;">Quiz Campus</h2>
+            </td>
+          </tr>
+
+          <tr>
+            <td style="color:#333333; font-size:15px; line-height:1.6;">
+              <p>Hello <strong>'.htmlspecialchars($to_name ?: 'User').'</strong>,</p>
+
+              <p>Your verification code is:</p>
+
+              <p style="font-size:26px; font-weight:bold; letter-spacing:5px; text-align:center; color:#111;">
+                '.$otp.'
+              </p>
+
+              <p>
+                This code will expire in <strong>'.(OTP_EXPIRE_SECONDS/60).' minutes</strong>.
+              </p>
+
+              <p style="font-size:13px; color:#666;">
+                If you did not request this, please ignore this email.
+              </p>
+
+              <p style="margin-top:25px;">
+                Regards,<br>
+                <strong>Quiz Campus Team</strong>
+              </p>
+            </td>
+          </tr>
+    </tr>
+  </table>
+</body>
+</html>
+';
+
+// ✅ Plain-text fallback (important)
+$mail->AltBody =
+"Hello ".($to_name ?: 'User').",
+
+Your verification code is: $otp
+This code will expire in ".(OTP_EXPIRE_SECONDS/60)." minutes.
+
+If you did not request this, please ignore.
+
+Regards,
+Quiz Campus Team";
+ 
 
         $mail->send();
         return true;

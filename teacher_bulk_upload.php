@@ -192,6 +192,8 @@ if (isset($_POST['upload'])) {
   <meta charset="utf-8">
   <title>Bulk Upload Questions (CSV + ZIP)</title>
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
 </head>
 <body>
   <div class="navbar">
@@ -202,18 +204,41 @@ if (isset($_POST['upload'])) {
   <div class="container"> 
     <div class="sidebar">
       <ul>
-        <li><a href="teacher_dashboard.php">🏠 Dashboard</a></li>
-        <li><a href="teacher_create_quiz.php">✏️ Create Quiz</a></li>
-        <li><a href="teacher_add_questions.php">➕ Add Questions</a></li>
-        <li><a href="teacher_bulk_upload.php"class="active">📂 Bulk Upload (CSV)</a></li>
-        <li><a href="teacher_manage_quizzes.php">🧾 Manage My Quizzes</a></li>
-        <li><a href="teacher_view_results.php">📈 View Results</a></li>
-        <li><a href="teacher_profile.php">👤 Profile</a></li>
+        <li><a href="teacher_dashboard.php">
+  <i class="fa-solid fa-house"></i> Dashboard
+</a></li>
+
+<li><a href="teacher_create_quiz.php">
+  <i class="fa-solid fa-pen-to-square"></i> Create Quiz
+</a></li>
+
+<li><a href="teacher_add_questions.php">
+  <i class="fa-solid fa-circle-plus"></i> Add Questions
+</a></li>
+
+<li><a href="teacher_bulk_upload.php" class="active">
+  <i class="fa-solid fa-file-csv"></i> Bulk Upload (CSV)
+</a></li>
+
+<li><a href="teacher_manage_quizzes.php">
+  <i class="fa-solid fa-list-check"></i> Manage My Quizzes
+</a></li>
+
+<li><a href="teacher_view_results.php">
+  <i class="fa-solid fa-chart-line"></i> View Results
+</a></li>
+
+<li><a href="teacher_profile.php">
+  <i class="fa-solid fa-user"></i> Profile
+</a></li>
+
       </ul>
     </div>
 
     <div class="content">
-      <h2>Bulk Upload Questions (CSV + optional images ZIP)</h2>
+        <h2>
+  <i class="fa-solid fa-file-csv"></i> Bulk Upload Questions (CSV + optional images ZIP)
+</h2>
 
       <?php if ($error): ?><p class="err"><?= htmlspecialchars($error) ?></p><?php endif; ?>
       <?php if ($message): ?><p class="msg"><?= htmlspecialchars($message) ?></p><?php endif; ?>

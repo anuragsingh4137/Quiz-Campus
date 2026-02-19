@@ -19,7 +19,11 @@ $total_premium = $conn->query("SELECT COUNT(*) AS count FROM users WHERE is_prem
 $payment_check = $conn->query("SHOW TABLES LIKE 'payments'");
 $total_revenue = 0;
 if ($payment_check->num_rows > 0) {
-    $total_revenue = $conn->query("SELECT SUM(amount) AS total FROM payments")->fetch_assoc()['total'] ?? 0;
+    $total_revenue_paisa = $conn->query("SELECT SUM(amount) AS total FROM payments")
+                            ->fetch_assoc()['total'] ?? 0;
+
+$total_revenue = $total_revenue_paisa / 100;
+
 }
 ?>
 <!DOCTYPE html>
@@ -28,6 +32,8 @@ if ($payment_check->num_rows > 0) {
   <meta charset="UTF-8">
   <title>Admin Reports - Quiz Campus</title>
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
     .report-cards {
@@ -88,56 +94,99 @@ if ($payment_check->num_rows > 0) {
     <!-- Sidebar -->
     <div class="sidebar">
       <ul>
-        <li><a href="admin_dashboard.php">🏠 Dashboard</a></li>
-        <li><a href="admin_users.php">👥 Manage Users</a></li>
-        <li><a href="admin_quizzes.php">📝 Manage Quizzes</a></li>
-        <li><a href="admin_payments.php">💳 View Payments</a></li>
-        <li><a href="admin_reports.php" class="active">📊 Reports</a></li>
-        <li><a href="admin_notices.php">🔔 Manage Notices</a></li>
-        <li><a href="admin_ads.php"> 📢 Ads Manager</a></li>
+                <li>
+  <a href="admin_dashboard.php">
+    <i class="fa-solid fa-house"></i> Dashboard
+  </a>
+</li>
+
+<li>
+  <a href="admin_users.php">
+    <i class="fa-solid fa-users"></i> Manage Users
+  </a>
+</li>
+
+<li>
+  <a href="admin_quizzes.php">
+    <i class="fa-solid fa-file-lines"></i> Manage Quizzes
+  </a>
+</li>
+
+<li>
+  <a href="admin_payments.php">
+    <i class="fa-solid fa-credit-card"></i> View Payments
+  </a>
+</li>
+
+<li>
+  <a href="admin_reports.php" class="active">
+    <i class="fa-solid fa-chart-column"></i> Reports
+  </a>
+</li>
+
+<li>
+  <a href="admin_notices.php">
+    <i class="fa-solid fa-bell"></i> Manage Notices
+  </a>
+</li>
+
+<li>
+  <a href="admin_ads.php">
+    <i class="fa-solid fa-bullhorn"></i> Ads Manager
+  </a>
+</li>
       </ul>
     </div>
 
     <!-- Content -->
     <div class="content">
-      <h2>📊 Admin Reports Dashboard</h2>
+      <h2>
+  <i class="fa-solid fa-chart-column"></i> Admin Reports Dashboard
+</h2>
+
       <p>Here’s an overview of your platform activity and performance.</p>
 
       <div class="report-cards">
-        <div class="report-card">
-          <h3>👨‍🎓 Students</h3>
-          <p><?= $total_students ?></p>
-        </div>
-        <div class="report-card">
-          <h3>👩‍🏫 Teachers</h3>
-          <p><?= $total_teachers ?></p>
-        </div>
-        <div class="report-card">
-          <h3>📝 Total Quizzes</h3>
-          <p><?= $total_quizzes ?></p>
-        </div>
-        <div class="report-card">
-          <h3>🎯 Quiz Attempts</h3>
-          <p><?= $total_attempts ?></p>
-        </div>
-        <div class="report-card">
-          <h3>💎 Premium Users</h3>
-          <p><?= $total_premium ?></p>
-        </div>
-        <?php if ($total_revenue > 0): ?>
-        <div class="report-card">
-          <h3>💰 Total Revenue</h3>
-          <p>₹<?= number_format($total_revenue, 2) ?></p>
-        </div>
-        <?php endif; ?>
-      </div>
 
-      <div class="chart-container">
-        <h3>📈 User & Quiz Statistics</h3>
-        <canvas id="statsChart"></canvas>
-      </div>
-    </div>
+  <div class="report-card">
+    <h3><i class="fa-solid fa-user-graduate"></i> Students</h3>
+    <p><?= $total_students ?></p>
   </div>
+
+  <div class="report-card">
+    <h3><i class="fa-solid fa-chalkboard-user"></i> Teachers</h3>
+    <p><?= $total_teachers ?></p>
+  </div>
+
+  <div class="report-card">
+    <h3><i class="fa-solid fa-clipboard-question"></i> Total Quizzes</h3>
+    <p><?= $total_quizzes ?></p>
+  </div>
+
+  <div class="report-card">
+    <h3><i class="fa-solid fa-bullseye"></i> Quiz Attempts</h3>
+    <p><?= $total_attempts ?></p>
+  </div>
+
+  <div class="report-card">
+    <h3><i class="fa-solid fa-gem"></i> Premium Users</h3>
+    <p><?= $total_premium ?></p>
+  </div>
+
+  <?php if ($total_revenue > 0): ?>
+  <div class="report-card">
+    <h3><i class="fa-solid fa-money-bill-wave"></i> Total Revenue</h3>
+    <p>रु <?= number_format($total_revenue, 2) ?></p>
+  </div>
+  <?php endif; ?>
+
+</div>
+
+<div class="chart-container">
+  <h3><i class="fa-solid fa-chart-line"></i> User & Quiz Statistics</h3>
+  <canvas id="statsChart"></canvas>
+</div>
+
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
@@ -186,7 +235,7 @@ new Chart(ctx, {
       },
       title: {
         display: true,
-        text: '📊 Platform Statistics',
+        text: ' Platform Statistics',
         font: { size: 18, weight: 'bold' }
       }
     },
