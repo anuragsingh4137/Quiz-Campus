@@ -2,17 +2,17 @@
 session_start();
 require 'db.php';
 
-// ✅ Ensure student is logged in
+//Ensure student is logged in
 if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'student') {
     header('Location: login.php');
     exit;
 }
 
-// 🧩 Filter inputs
+// Filter inputs
 $selected_quiz = isset($_GET['quiz_id']) ? (int)$_GET['quiz_id'] : 0;
 $selected_time = isset($_GET['time_range']) ? $_GET['time_range'] : 'all';
 
-// 🧠 Build SQL conditions
+// Build SQL conditions
 $conditions = [];
 $params = [];
 $types = '';
@@ -31,7 +31,7 @@ if ($selected_time === 'month') {
 
 $where_sql = count($conditions) ? 'WHERE ' . implode(' AND ', $conditions) : '';
 
-// 🏆 Leaderboard query
+//  Leaderboard query
 $sql = "
     SELECT 
         u.id AS user_id, 
@@ -56,7 +56,7 @@ $stmt->execute();
 $result = $stmt->get_result();
 $leaders = $result->fetch_all(MYSQLI_ASSOC);
 
-// 🧾 Quiz list for dropdown
+//  Quiz list for dropdown
 $quiz_list = $conn->query("SELECT id, title FROM quizzes ORDER BY created_at DESC");
 ?>
 <!DOCTYPE html>
@@ -179,9 +179,9 @@ button:hover {background:#1e40af;}
 </div>
 
 <div class="container">
-  <h2>🏆 Leaderboard</h2>
+  <h2> Leaderboard</h2>
 
-  <!-- 🔍 Filter Section -->
+  <!-- Filter Section -->
   <form method="GET" class="filter-box">
     <select name="quiz_id">
       <option value="0">All Quizzes</option>

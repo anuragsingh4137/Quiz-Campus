@@ -62,14 +62,49 @@ if ($is_premium) {
       .sidebar { width: 220px; min-width: 220px; }
     }
 
-    /* Card spacing to match dashboard */
-    .page { padding: 28px 36px; max-width: 1200px; margin: 0 auto; }
-    .card { background:#fff;border-radius:12px;padding:26px;box-shadow:0 14px 36px rgba(2,6,23,0.06);border:1px solid rgba(2,6,23,0.04);display:flex;gap:20px;align-items:center; }
-    .badge { width:72px;height:72px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:32px;background:linear-gradient(90deg,#10b981,#059669);color:#fff; }
-    .pill { background:#f1f5f9;padding:8px 12px;border-radius:999px;color:#0f172a;font-weight:600;border:1px solid rgba(2,6,23,0.04); }
-    .actions a { display:inline-block; padding:10px 16px; border-radius:10px; font-weight:700; text-decoration:none; }
-    .actions a.primary { background:linear-gradient(90deg,#3b82f6,#2563eb); color:#fff; }
-    .actions a.ghost { background:#fff; border:1px solid #e6eefc; color:#0f172a; }
+    // Card spacing to match dashboard
+    .page { 
+      padding: 28px 36px; 
+      max-width: 1200px; 
+      margin: 0 auto; }
+    .card { 
+      background:#fff;
+      border-radius:12px;
+      padding:26px;
+      box-shadow:0 14px 36px rgba(2,6,23,0.06);
+      border:1px solid rgba(2,6,23,0.04);
+      display:flex;
+      gap:20px;
+      align-items:center; }
+    .badge { 
+      width:72px;
+      height:72px;
+      border-radius:16px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:32px;
+      background:linear-gradient(90deg,#10b981,#059669);
+      color:#fff; }
+    .pill { 
+      background:#f1f5f9;
+      padding:8px 12px;
+      border-radius:999px;
+      color:#0f172a;font-weight:600;
+      border:1px solid rgba(2,6,23,0.04); }
+    .actions a {
+       display:inline-block; 
+       padding:10px 16px; 
+       border-radius:10px; 
+       font-weight:700; 
+       text-decoration:none; }
+    .actions a.primary { 
+      background:linear-gradient(90deg,#3b82f6,#2563eb); 
+      color:#fff; }
+    .actions a.ghost { 
+      background:#fff; 
+      border:1px solid #e6eefc; 
+      color:#0f172a; }
   </style>
 </head>
 <body>

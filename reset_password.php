@@ -36,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['password']) && isset($
     $update->bind_param("si", $new_password, $user_id);
     $update->execute();
 
-    $message = "✅ Password has been reset successfully. <a href='login.php'>Login Now</a>";
+    $message = " Password has been reset successfully. <a href='login.php'>Login Now</a>";
     $valid = false;
 }
 ?>

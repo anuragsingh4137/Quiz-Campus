@@ -70,9 +70,8 @@ function send_reset_email($to_email, $reset_link) {
     }
 }
 
-/**
- * DEV fallback logger
- */
+//DEV fallback logger
+
 function dev_log_reset($email, $reset_link) {
     $entry = sprintf("[%s] %s -> %s\n", date('Y-m-d H:i:s'), $email, $reset_link);
     file_put_contents(__DIR__ . '/reset_dev.log', $entry, FILE_APPEND | LOCK_EX);
@@ -102,8 +101,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $update->bind_param("ssi", $token, $expiry, $user['id']);
             $update->execute();
             $update->close();
-
-            // Change localhost to your real domain in production
             $reset_link = "http://localhost/quiz-campus/reset_password.php?token=" . $token;
 
             $sent = send_reset_email($email, $reset_link);

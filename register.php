@@ -53,11 +53,11 @@ function send_otp_email($to_email, $to_name, $otp) {
 $mail->addAddress($to_email, $to_name);
 $mail->addReplyTo(SMTP_FROM_EMAIL, SMTP_FROM_NAME);
 
-// ✅ Enable HTML email
+// Enable HTML email
 $mail->isHTML(true);
 $mail->Subject = "Quiz Campus:Your Verification Code";
 
-// ✅ HTML Email Body
+// HTML Email Body
 $mail->Body = '
 <!DOCTYPE html>
 <html>
@@ -107,7 +107,7 @@ $mail->Body = '
 </html>
 ';
 
-// ✅ Plain-text fallback (important)
+// Plain-text fallback (important)
 $mail->AltBody =
 "Hello ".($to_name ?: 'User').",
 
@@ -135,7 +135,7 @@ $blocked_domains = [
     'trashmail.com','temporary-mail.net','dispostable.com'
 ];
 
-// ---------- HANDLE RESEND OTP ----------
+//HANDLE RESEND OTP
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['resend_otp'])) {
     if (empty($_SESSION['reg_pending']) || empty($_SESSION['otp'])) {
         $error = "No pending registration to resend OTP for.";
@@ -164,7 +164,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['resend_otp'])) {
     }
 }
 
-// ---------- HANDLE VERIFY OTP ----------
+//HANDLE VERIFY OTP
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['verify_otp'])) {
     $provided = trim($_POST['otp'] ?? '');
     if (empty($_SESSION['reg_pending']) || empty($_SESSION['otp'])) {
@@ -186,7 +186,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['verify_otp'])) {
             // OTP correct -> insert user into DB
             $data = $_SESSION['reg_pending'];
 
-            // final server side validation (again)
+            // final server side validation
             $stmtCheck = $conn->prepare("SELECT id FROM users WHERE email = ?");
             $stmtCheck->bind_param("s", $data['email']);
             $stmtCheck->execute();
@@ -214,7 +214,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['verify_otp'])) {
     }
 }
 
-// ---------- HANDLE INITIAL REGISTRATION FORM SUBMISSION (create pending + send OTP) ----------
+//HANDLE INITIAL REGISTRATION FORM SUBMISSION (create pending + send OTP)
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['register_submit'])) {
     $name           = trim($_POST['name']           ?? '');
     $email          = trim($_POST['email']          ?? '');
@@ -329,14 +329,35 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['register_submit'])) {
   <link rel="stylesheet" href="css/auth.css">
   <style>
     /* small inline styles for visual hints */
-    .hint { font-size: 12px; margin-top: 4px; }
-    .hint.valid { color:#16a34a; }
-    .hint.invalid { color:#dc2626; }
-    .input-valid { border-color:#16a34a !important; }
-    .input-invalid { border-color:#dc2626 !important; }
-    .otp-box { max-width:420px; margin: 10px 0; padding: 14px; background:#f8fafc; border-radius:8px; border:1px solid #e6edf3; }
-    .msg { background:#eef; padding:10px; border-radius:6px; margin-bottom:12px; }
-    .error { background:#fee2e2; padding:10px; border-radius:6px; margin-bottom:12px; color:#7f1d1d; }
+    .hint { 
+      font-size: 12px; 
+      margin-top: 4px; }
+    .hint.valid { 
+      color:#16a34a; }
+    .hint.invalid { 
+      color:#dc2626; }
+    .input-valid { 
+      border-color:#16a34a !important; }
+    .input-invalid { 
+      border-color:#dc2626 !important; }
+    .otp-box { 
+      max-width:420px; 
+      margin: 10px 0; 
+      padding: 14px; 
+      background:#f8fafc; 
+      border-radius:8px; 
+      border:1px solid #e6edf3; }
+
+    .msg { 
+      background:#eef; 
+      padding:10px; 
+      border-radius:6px; margin-bottom:12px; }
+    .error { 
+      background:#fee2e2; 
+      padding:10px; 
+      border-radius:6px; 
+      margin-bottom:12px; 
+      color:#7f1d1d; }
   </style>
 </head>
 <body>

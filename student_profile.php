@@ -137,17 +137,52 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <style>
-    .profile-container { max-width: 700px; margin: auto; padding: 20px; background: #fff; border-radius:8px; }
-    .profile-pic { width: 100px; height: 100px; border-radius: 50%; object-fit: cover; margin-bottom: 15px; }
-    .edit-btn { background: #2563eb; color: #fff; padding: 8px 12px; border: none; border-radius: 6px; cursor: pointer; }
-    .save-btn { background: #10b981; color: #fff; padding: 8px 12px; border: none; border-radius: 6px; cursor: pointer; }
-    .field { margin-bottom: 10px; display:block; }
-    .msg { background:#eef; padding:10px; border-radius:6px; margin-bottom:12px; }
-    .input-ok { border: 2px solid #16a34a !important; }
-    .input-err { border: 2px solid #dc2626 !important; }
-    .small-note { font-size:13px;color:#6b7280;margin-top:6px; }
-    /* Confirm password hidden by default */
-    #confirm_wrap { display:none; margin-top:8px; }
+    .profile-container { 
+        max-width: 700px; 
+        margin: auto; 
+        padding: 20px; 
+        background: #fff; 
+        border-radius:8px; }
+    .profile-pic { 
+        width: 100px; 
+        height: 100px; 
+        border-radius: 50%; 
+        object-fit: cover; 
+        margin-bottom: 15px; }
+    .edit-btn { 
+        background: #2563eb; 
+        color: #fff; 
+        padding: 8px 12px; 
+        border: none; 
+        border-radius: 6px; 
+        cursor: pointer; }
+    .save-btn { 
+        background: #10b981; 
+        color: #fff; 
+        padding: 8px 12px; 
+        border: none; 
+        border-radius: 6px; 
+        cursor: pointer; }
+    .field { 
+        margin-bottom: 10px; 
+        display:block; }
+    .msg { 
+        background:#eef; 
+        padding:10px; 
+        border-radius:6px; 
+        margin-bottom:12px; }
+    .input-ok { 
+        border: 2px solid #16a34a !important; }
+    .input-err { 
+        border: 2px solid #dc2626 !important; }
+    .small-note { 
+        font-size:13px;
+        color:#6b7280;
+        margin-top:6px; }
+    // Confirm password hidden by default
+    #confirm_wrap { 
+        display:none; 
+        margin-top:8px; }
   </style>
 </head>
 <body>
@@ -279,7 +314,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           </div>
 
           <p style="margin-top:14px;"><strong>Premium Status:</strong>
-            <?= !empty($user['is_premium_user']) ? "✅ Premium User" : "❌ Free User" ?>
+            <?= !empty($user['is_premium_user']) ? " Premium User" : " Free User" ?>
           </p>
 
           <div style="margin-top:18px;display:flex;gap:10px;">

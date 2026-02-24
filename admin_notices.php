@@ -30,27 +30,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_notice'])) {
             }
             $stmt->close();
         } else {
-            $error = "⚠️ Could not prepare statement: " . htmlspecialchars($conn->error);
+            $error = " Could not prepare statement: " . htmlspecialchars($conn->error);
         }
     } else {
-        $error = "⚠️ Please fill in both title and description.";
+        $error = " Please fill in both title and description.";
     }
 }
 
-// Handle Delete Notice (prepared)
+// Handle Delete Notice
 if (isset($_GET['delete'])) {
     $id = intval($_GET['delete']);
     $stmt = $conn->prepare("DELETE FROM notices WHERE id = ?");
     if ($stmt) {
         $stmt->bind_param("i", $id);
         if ($stmt->execute()) {
-            $message = "🗑️ Notice deleted successfully!";
+            $message = " Notice deleted successfully!";
         } else {
-            $error = "⚠️ Error deleting notice: " . htmlspecialchars($stmt->error);
+            $error = " Error deleting notice: " . htmlspecialchars($stmt->error);
         }
         $stmt->close();
     } else {
-        $error = "⚠️ Could not prepare delete statement: " . htmlspecialchars($conn->error);
+        $error = " Could not prepare delete statement: " . htmlspecialchars($conn->error);
     }
 }
 
@@ -134,19 +134,70 @@ function audience_label($v) {
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <style>
-    .notice-container { max-width: 900px; margin: 40px auto; background:#fff; padding:25px; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.1); }
-    h2 { color:#2563eb; text-align:center; margin-bottom:25px; }
-    form { display:flex; flex-direction:column; gap:12px; margin-bottom:30px; }
-    input, textarea { padding:10px; border:1px solid #ccc; border-radius:6px; font-size:15px; }
-    button { background:#2563eb; color:white; padding:10px 20px; border:none; border-radius:6px; cursor:pointer; font-size:15px; }
-    table { width:100%; border-collapse:collapse; margin-top:10px; }
-    th, td { padding:10px; border:1px solid #ddd; text-align:left; }
-    th { background:#2563eb; color:white; }
-    tr:nth-child(even) { background:#f9fafb; }
-    .delete-btn { background:#dc2626; color:white; padding:6px 10px; border-radius:5px; text-decoration:none; }
-    .msg { text-align:center; background:#f3f4f6; padding:10px; border-radius:6px; margin-bottom:15px; color:#111827; font-weight:500; }
-    .pagination a { margin:0 5px; text-decoration:none; color:#2563eb; padding:8px 12px; border-radius:6px; background:#f3f4f6; }
-    .pagination a:hover { background:#2563eb; color:white; }
+    .notice-container { 
+    max-width: 900px; 
+    margin: 40px auto; 
+    background:#fff; 
+    padding:25px; 
+    border-radius:10px; 
+    box-shadow:0 4px 10px rgba(0,0,0,0.1); }
+    h2 { 
+    color:#2563eb; 
+    text-align:center; 
+    margin-bottom:25px; }
+    form { 
+    display:flex; 
+    flex-direction:column; 
+    gap:12px; 
+    margin-bottom:30px; }
+    input, textarea 
+    { padding:10px; 
+    border:1px solid #ccc; 
+    border-radius:6px;
+     font-size:15px; }
+    button { 
+    background:#2563eb; 
+    color:white; 
+    padding:10px 20px; 
+    border:none; border-radius:6px;
+    cursor:pointer; font-size:15px; }
+    table { 
+    width:100%; 
+    border-collapse:collapse; 
+    margin-top:10px; }
+    th, td { 
+      padding:10px; 
+      border:1px solid #ddd;
+      text-align:left; }
+    th {
+      background:#2563eb;
+      color:white; }
+    tr:nth-child(even) {
+       background:#f9fafb; }
+    .delete-btn { 
+      background:#dc2626;
+       color:white; 
+       padding:6px 10px; 
+       border-radius:5px; 
+       text-decoration:none; }
+    .msg { 
+      text-align:center; 
+      background:#f3f4f6; 
+      padding:10px; 
+      border-radius:6px; 
+      margin-bottom:15px; 
+      color:#111827; 
+      font-weight:500; }
+    .pagination a {
+       margin:0 5px;
+        text-decoration:none; 
+        color:#2563eb; 
+        padding:8px 12px; 
+        border-radius:6px; 
+        background:#f3f4f6; }
+    .pagination a:hover { 
+      background:#2563eb;
+      color:white; }
   </style>
 </head>
 <body>

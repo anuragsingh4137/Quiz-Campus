@@ -110,7 +110,7 @@ $result = $conn->query($sql);
           </table>
         <?php else: ?>
           <div class="no-quizzes">
-            🚫 No quizzes available at the moment. Please check back later.
+            No quizzes available at the moment. Please check back later.
           </div>
         <?php endif; ?>
       </div>

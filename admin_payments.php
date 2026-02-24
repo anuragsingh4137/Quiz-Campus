@@ -136,9 +136,9 @@ $result = $stmt->get_result();
   
         <td class="premium-cell">
           <?php if ($isPremium): ?>
-            <span style="color:green;font-weight:700;">✅ Premium</span>
+            <span style="color:green;font-weight:700;">Premium</span>
           <?php else: ?>
-            <span class="muted">❌ Not Premium</span>
+            <span class="muted"> Not Premium</span>
           <?php endif; ?>
         </td>
           

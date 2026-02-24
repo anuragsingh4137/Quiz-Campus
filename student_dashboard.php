@@ -183,9 +183,9 @@ $total_attempts = $total_quizzes_query->fetch_assoc()['total'] ?? 0;
           <h2><i class="fa-solid fa-user"></i> Profile </h2>
           <p>
             <?php if ($user['is_premium_user']) {
-                echo "✅ You are a Premium Member";
+                echo " You are a Premium Member";
             } else {
-                echo "❌ Not a Premium Member";
+                echo " Not a Premium Member";
             } ?>
           </p>
         </div>

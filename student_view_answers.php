@@ -277,7 +277,7 @@ body {
   </div>
 
   <div class="questions">
-    <h3>📝 Detailed Answers</h3>
+    <h3> Detailed Answers</h3>
     <?php if (count($results) > 0): ?>
       <?php foreach($results as $i => $r): ?>
         <div class="question-card">

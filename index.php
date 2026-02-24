@@ -14,6 +14,7 @@ $hasAds = count($ads) > 0;
   <meta charset="utf-8">
   <title>Quiz Campus - Home</title>
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
 
@@ -80,19 +81,26 @@ $hasAds = count($ads) > 0;
      <div class="footer-section">
   <h4>Contact</h4>
 
-  <p>
-    📧 <a href="mailto:quizcampus944@gmail.com">quizcampus944@gmail.com</a>
-  </p>
-
-  <p>
-    📞 <a href="tel:+9779840126117">+977-9840126117</a>
-  </p>
-
-  <p>
-    📍 <a href="https://maps.google.com/?q=Nepal" target="_blank">
-      Nepal
+ <p>
+    <i class="fa-solid fa-envelope"></i>
+    <a href="mailto:quizcampus944@gmail.com">
+        quizcampus944@gmail.com
     </a>
-  </p>
+</p>
+
+<p>
+    <i class="fa-solid fa-phone"></i>
+    <a href="tel:+9779840126117">
+        +977-9840126117
+    </a>
+</p>
+
+<p>
+    <i class="fa-solid fa-location-dot"></i>
+    <a href="https://maps.google.com/?q=Nepal" target="_blank">
+        Nepal
+    </a>
+</p>
 </div>
   </div>
 

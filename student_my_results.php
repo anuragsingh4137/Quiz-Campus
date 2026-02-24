@@ -160,7 +160,7 @@ for ($i = 0; $i < count($scores); $i++) {
 
       <!-- Detailed table -->
       <div class="results-table">
-        <h3>📝 Detailed Results</h3>
+        <h3>Detailed Results</h3>
 
         <?php if (!empty($data)): ?>
         <table>

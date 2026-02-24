@@ -9,7 +9,7 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin') {
 
 $user_id = $_SESSION['user_id'];
 
-// ✅ Fetch admin name from DB
+//  Fetch admin name from DB
 $stmt = $conn->prepare("SELECT name FROM users WHERE id = ?");
 $stmt->bind_param("i", $user_id);
 $stmt->execute();
@@ -87,7 +87,7 @@ $admin_name = $admin['name'] ?? 'Admin';
     </div>
 
     <div class="content">
-      <h2>Welcome, <?= htmlspecialchars($admin_name) ?> 👋</h2>
+      <h2>Welcome, <?= htmlspecialchars($admin_name) ?></h2>
       <p>This is your Admin dashboard. Use the sidebar to navigate features.</p>
     </div>
   </div>

@@ -37,6 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <meta charset="UTF-8">
   <title>Edit User - Admin</title>
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
   <div class="navbar">
@@ -49,18 +50,51 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
   <div class="container">
     <div class="sidebar">
-      <ul>
-        <li><a href="admin_dashboard.php">🏠 Dashboard</a></li>
-        <li><a href="admin_users.php" class="active">👥 Manage Users</a></li>
-        <li><a href="admin_quizzes.php">📝 Manage Quizzes</a></li>
-        <li><a href="admin_payments.php">💳 View Payments</a></li>
-        <li><a href="admin_reports.php">📊 Reports</a></li>
-        <li><a href="admin_notices.php">📢 Manage Notices</a></li>
-      </ul>
+      
+
+<ul>
+    <li>
+        <a href="admin_dashboard.php">
+            <i class="fa-solid fa-house"></i> Dashboard
+        </a>
+    </li>
+
+    <li>
+        <a href="admin_users.php" class="active">
+            <i class="fa-solid fa-users"></i> Manage Users
+        </a>
+    </li>
+
+    <li>
+        <a href="admin_quizzes.php">
+            <i class="fa-solid fa-clipboard-question"></i> Manage Quizzes
+        </a>
+    </li>
+
+    <li>
+        <a href="admin_payments.php">
+            <i class="fa-solid fa-credit-card"></i> View Payments
+        </a>
+    </li>
+
+    <li>
+        <a href="admin_reports.php">
+            <i class="fa-solid fa-chart-line"></i> Reports
+        </a>
+    </li>
+
+    <li>
+        <a href="admin_notices.php">
+            <i class="fa-solid fa-bullhorn"></i> Manage Notices
+        </a>
+    </li>
+</ul>
     </div>
 
     <div class="content">
-      <h2>✏️ Edit User</h2>
+      <h2>
+    <i class="fa-solid fa-user-pen"></i> Edit User
+</h2>
       <form method="POST">
         <label>Name:</label>
         <input type="text" name="name" value="<?= htmlspecialchars($user['name']) ?>" required>
