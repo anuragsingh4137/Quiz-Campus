@@ -167,7 +167,7 @@ $total_attempts = $attempts_data['total_attempts'] ?? 0;
 
     <div class="content">
       <div class="dashboard-header">
-        <h2>Welcome, <?= htmlspecialchars($user['name']) ?> 👋</h2>
+        <h2>Welcome, <?= htmlspecialchars($user['name']) ?></h2>
         <p>Here’s your summary and activity overview.</p>
       </div>
 

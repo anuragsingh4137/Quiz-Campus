@@ -160,7 +160,7 @@ $total_attempts = $total_quizzes_query->fetch_assoc()['total'] ?? 0;
     <!-- Main Content -->
     <div class="content">
       <div class="dashboard-header">
-        <h2>Welcome, <?= htmlspecialchars($user['name']) ?> 👋</h2>
+        <h2>Welcome, <?= htmlspecialchars($user['name']) ?></h2>
         <p>Here’s your summary and recent activity.</p>
       </div>
 
