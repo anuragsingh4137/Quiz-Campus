@@ -1,0 +1,10 @@
+[24-Feb-2026 17:58:41 Europe/Berlin] PHP Fatal error:  Uncaught ArgumentCountError: The number of elements in the type definition string must match the number of bind variables in C:\xampp\htdocs\quiz-campus\student_profile.php:103
+Stack trace:
+#0 C:\xampp\htdocs\quiz-campus\student_profile.php(103): mysqli_stmt->bind_param('sssss ssi', 'ANURAG KUMAR SI...', 'Male', 'Bachelor', '1771952321_26a0...', '', '+977', '9840126117', 3)
+#1 {main}
+  thrown in C:\xampp\htdocs\quiz-campus\student_profile.php on line 103
+[24-Feb-2026 18:00:38 Europe/Berlin] PHP Fatal error:  Uncaught ArgumentCountError: The number of elements in the type definition string must match the number of bind variables in C:\xampp\htdocs\quiz-campus\student_profile.php:103
+Stack trace:
+#0 C:\xampp\htdocs\quiz-campus\student_profile.php(103): mysqli_stmt->bind_param('sssss ssi', 'ANURAG KUMAR SI...', 'Male', 'Bachelor', '1771952438_26a0...', '', '+977', '9840126117', 3)
+#1 {main}
+  thrown in C:\xampp\htdocs\quiz-campus\student_profile.php on line 103

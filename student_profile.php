@@ -100,7 +100,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 // update without password (and do NOT update email)
                 if ($profile_pic) {
                     $stmt = $conn->prepare("UPDATE users SET name=?, gender=?, education_level=?, profile_pic=?, dob=?, country_code=?, phone=? WHERE id=?");
-                    $stmt->bind_param("sssss ssi", $name, $gender, $education_level, $profile_pic, $dob, $country_code, $phone, $user_id);
+                    $stmt->bind_param("sssssssi", $name, $gender, $education_level, $profile_pic, $dob, $country_code, $phone, $user_id);
                 } else {
                     $stmt = $conn->prepare("UPDATE users SET name=?, gender=?, education_level=?, dob=?, country_code=?, phone=? WHERE id=?");
                     $stmt->bind_param("ssssssi", $name, $gender, $education_level, $dob, $country_code, $phone, $user_id);
